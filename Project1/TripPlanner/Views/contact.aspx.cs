@@ -127,7 +127,7 @@ public partial class Views_contact : System.Web.UI.Page
     {
         //Regular expression allows for a more detailed Validation.
         //This makes sure you have a total of 10 digits and spacers such as - if you wanted
-        Regex rx = new Regex(@"\(?\d+\)?[-.\s]?\d+[-.\s]?\d+");
+        Regex rx = new Regex(@"^\s*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$");
         //if the Phone is null it will give a specific error message and return a false to the validation call above
         if (txtPhoneNumber.Text == null)
         {
@@ -145,7 +145,7 @@ public partial class Views_contact : System.Web.UI.Page
         else
         {
             //This blanks out the error message so you don't see it if the validation is good
-            lblEmailAddressError.Text = "";
+            lblPhoneNumber.Text = "";
         }
         return true;
 
